@@ -2,6 +2,8 @@
 
 An interactive, terminal-based AI assistant powered by local Ollama (`gemma4:e4b`) with built-in tools for **Exa Web Search** and complete **Robinhood Trading & Portfolio Automation** via the `robin_stocks` SDK.
 
+Now fully packagable and installable directly from PyPI!
+
 ---
 
 ## Key Features
@@ -22,14 +24,18 @@ An interactive, terminal-based AI assistant powered by local Ollama (`gemma4:e4b
 ollama-robin/
 ├── .env.example       # Template env file for credentials
 ├── .gitignore         # Prevents committing API keys / secrets
+├── pyproject.toml      # Package and build system metadata (Hatchling)
 ├── README.md          # Guide & setup documentation
 ├── requirements.txt   # Pinned python dependency packages
-├── chat.py            # Main interactive CLI chat loop
-└── tools/
-    ├── __init__.py
-    ├── formatter.py   # Recursive clean-up helper (2.7100 -> 2.71)
-    ├── schemas.py     # Declarative JSON schemas for Ollama tools
-    └── handlers.py    # Python logic calling Exa and Robinhood APIs
+└── src/
+    └── ollama_robin/
+        ├── __init__.py
+        ├── chat.py     # Main terminal chat loop client
+        └── tools/
+            ├── __init__.py
+            ├── formatter.py   # Clean-up helper (2.7100 -> 2.71)
+            ├── schemas.py     # Declarative JSON schemas for tools
+            └── handlers.py    # Python logic calling Exa & Robinhood APIs
 ```
 
 ---
@@ -43,13 +49,19 @@ ollama-robin/
   ollama pull gemma4:e4b
   ```
 
-### 2. Install Python Dependencies
+### 2. Install Package
+You can install the package directly from PyPI:
 ```bash
-pip install ollama exa-py robin_stocks python-dotenv
+pip install ollama-robin
+```
+
+Alternatively, for local development, clone the repository and install in editable mode:
+```bash
+pip install -e .
 ```
 
 ### 3. Configure Environment Variables
-Create a file named `.env.local` in the project root:
+Create a file named `.env.local` in the directory where you plan to run the chat:
 ```env
 # Exa API Key
 EXA_API_KEY="your-exa-api-key-here"
@@ -63,9 +75,9 @@ ROBINHOOD_PASSWORD="your-robinhood-password"
 
 ## Running the Application
 
-To start the interactive chat client:
+Once installed, simply run the command-line shortcut:
 ```bash
-python chat.py
+ollama-robin
 ```
 
 - **MFA Warning**: If your Robinhood account has MFA active, the script will pause and prompt you to input the code directly into the terminal window during startup.
