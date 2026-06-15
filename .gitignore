@@ -1,0 +1,17 @@
+# Local environment variables (Contains passwords and API keys)
+.env
+.env.local
+.env.*
+
+# Python Cache & Build
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# OS files
+.DS_Store
+Thumbs.db

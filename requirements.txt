@@ -1,0 +1,4 @@
+ollama>=0.6.2
+exa-py>=2.13.2
+robin_stocks>=3.0.0
+python-dotenv>=1.0.1
