@@ -6,8 +6,8 @@ import robin_stocks.robinhood as rh
 from dotenv import load_dotenv
 
 # Import our modular tools package
-from tools.schemas import tools
-from tools.handlers import handle_tool_call
+from ollama_robin.tools.schemas import tools
+from ollama_robin.tools.handlers import handle_tool_call
 
 # Load environment variables
 load_dotenv()

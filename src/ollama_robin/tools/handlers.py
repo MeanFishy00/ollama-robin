@@ -1,6 +1,6 @@
 import json
 import robin_stocks.robinhood as rh
-from tools.formatter import serialize
+from ollama_robin.tools.formatter import serialize
 
 def handle_tool_call(func_name, args, exa_client, rb_enabled):
     tool_response = ""

@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ollama-robin"
+version = "0.1.0"
+description = "Terminal-based AI assistant powered by local Ollama with Exa search and Robinhood tools"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Isaiah", email = "isaiahgwood@gmail.com" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "ollama>=0.6.2",
+    "exa-py>=2.13.2",
+    "robin_stocks>=3.0.0",
+    "python-dotenv>=1.0.1",
+]
+
+[project.scripts]
+ollama-robin = "ollama_robin.chat:main"
